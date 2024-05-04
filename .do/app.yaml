@@ -1,0 +1,8 @@
+name: do-sample-app
+services:
+  - dockerfile_path: Dockerfile
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: jesse-grabowski/do-app-sample
+    name: do-sample-app
