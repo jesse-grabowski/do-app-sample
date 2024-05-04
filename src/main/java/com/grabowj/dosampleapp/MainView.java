@@ -2,6 +2,9 @@ package com.grabowj.dosampleapp;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -21,8 +24,8 @@ public class MainView extends VerticalLayout {
     public MainView(NoteRepository noteRepository, NoteEditor noteEditor) {
         this.noteRepository = noteRepository;
         this.noteEditor = noteEditor;
-
-        add(addNewButton, noteGrid, noteEditor);
+        
+        add(new H1("CI/CD Test"), addNewButton, noteGrid, noteEditor);
 
         noteGrid.setHeight("300px");
         noteGrid.setColumns("id", "text");
