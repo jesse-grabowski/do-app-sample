@@ -1,9 +1,9 @@
-FROM eclipse-temurin:21-jdk-alpine as build
+FROM maven:3.9.6-eclipse-temurin-21-alpine as build
 WORKDIR /workspace/app
 
 COPY . /workspace/app
 
-RUN --mount=type=cache,target=/root/.m2 ./mvnw install -DskipTests -P production
+RUN --mount=type=cache,target=/root/.m2 mvn clean install -DskipTests -P production
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 FROM eclipse-temurin:21-jdk-alpine
